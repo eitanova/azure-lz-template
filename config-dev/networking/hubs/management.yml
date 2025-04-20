@@ -1,0 +1,19 @@
+vnets:
+  gateway:
+    parent: egress
+    address_space:
+      - 10.112.4.0/24
+    subnets:
+      GatewaySubnet:
+        address_prefixes:
+          - 10.112.4.0/28
+    
+    peering: # this can only be added after all vnets are created
+      gateway-to-dev: 
+        target_id: /subscriptions/44af6658-24ba-481e-bfa3-d76fd600e288/resourceGroups/egress/providers/Microsoft.Network/virtualNetworks/internet
+      gateway-to-prd: 
+        target_id: /subscriptions/e479f740-ea3e-40e0-b7c8-45f109893c51/resourceGroups/egress/providers/Microsoft.Network/virtualNetworks/internet
+
+resource_groups:
+  egress: {}
+  
