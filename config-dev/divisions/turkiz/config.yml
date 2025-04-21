@@ -1,0 +1,47 @@
+name: Turkiz
+type: division
+
+environments:
+  dev: {}
+    # shared_services:
+    #   networking:
+    #     rbac:
+    #     tags:
+    #   logging: {}
+
+  prd:
+    shared_services:
+      networking:
+        untrusted:
+          address_space:
+            - 10.113.0.0/24
+          subnets:
+           AzureFirewallSubnet:
+            address_prefixes:
+              - 10.113.0.0/28
+
+        trusted:
+          address_space:
+            - 10.113.1.0/24
+          subnets:
+           AzureFirewallSubnet:
+            address_prefixes:
+              - 10.113.1.0/28
+  ppd:
+    shared_services:
+      networking:
+        untrusted:
+          address_space:
+            - 10.113.0.0/24
+          subnets:
+            AzureFirewallSubnet:
+              address_prefixes:
+                - 10.113.0.0/28
+        trusted:
+          address_space:
+            - 10.113.1.0/24
+          subnets:
+            AzureFirewallSubnet:
+              address_prefixes:
+                - 10.113.1.0/28
+        

@@ -1,0 +1,28 @@
+vnets: 
+  internet:
+    parent: egress
+    address_space:
+      - 10.112.0.0/24
+    subnets:
+      palo:
+        address_prefixes: 
+          - 10.112.0.0/28
+    peering: # this can only be added after all vnets are created
+      dev-to-mgmt:
+        target_id: /subscriptions/1cc1d425-1863-49c9-8c93-7a619d4c3576/resourceGroups/egress/providers/Microsoft.Network/virtualNetworks/gateway
+  
+  trusted:
+    parent: trusted
+    address_space:
+      - 10.112.1.0/24
+  
+  untrusted:
+    parent: untrusted
+    address_space:
+      - 10.112.2.0/24
+
+resource_groups:
+  egress: {}
+  trusted: {}
+  on-prem: {}
+  untrusted: {}
