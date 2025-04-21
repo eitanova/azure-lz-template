@@ -1,5 +1,4 @@
 [0-9]*/local-*.tf
-[0-9]*/local-*.tf
 **/*.excalidraw
 */*-provider.tf
 */*.auto.tfvars
@@ -29,4 +28,3 @@ globals*json
 !/config-prod/**
 !/config-test/**
 !/config-exp/**
-playground/
