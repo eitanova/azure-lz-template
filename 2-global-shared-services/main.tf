@@ -16,6 +16,10 @@ module "internet-prd-rg" {
   name     = local.global_hubs["internet-prd"].resource_group_name
   location = local.global_hubs["internet-prd"].resource_group_location
   tags     = local.global_hubs["internet-prd"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.internet-prd
+  }
 }
 
 module "internet-prd-hub" {
@@ -42,6 +46,10 @@ module "internet-dev-rg" {
   name     = local.global_hubs["internet-dev"].resource_group_name
   location = local.global_hubs["internet-dev"].resource_group_location
   tags     = local.global_hubs["internet-dev"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.internet-dev
+  }
 }
 
 module "internet-dev-hub" {
@@ -68,6 +76,10 @@ module "trusted-dev-rg" {
   name     = local.global_hubs["trusted-dev"].resource_group_name
   location = local.global_hubs["trusted-dev"].resource_group_location
   tags     = local.global_hubs["trusted-dev"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.trusted-dev
+  }
 }
 
 module "trusted-dev-hub" {
@@ -94,6 +106,10 @@ module "untrusted-dev-rg" {
   name     = local.global_hubs["untrusted-dev"].resource_group_name
   location = local.global_hubs["untrusted-dev"].resource_group_location
   tags     = local.global_hubs["untrusted-dev"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.untrusted-dev
+  }
 }
 
 module "untrusted-dev-hub" {
@@ -120,6 +136,10 @@ module "mgmt-rg" {
   name     = local.global_hubs["mgmt"].resource_group_name
   location = local.global_hubs["mgmt"].resource_group_location
   tags     = local.global_hubs["mgmt"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.mgmt
+  }
 }
 
 module "mgmt-hub" {
@@ -146,6 +166,10 @@ module "on-prem-rg" {
   name     = local.global_hubs["on-prem"].resource_group_name
   location = local.global_hubs["on-prem"].resource_group_location
   tags     = local.global_hubs["on-prem"].resource_group_tags
+
+  providers = {
+    azurerm = azurerm.on-prem
+  }
 }
 
 module "on-prem-hub" {
