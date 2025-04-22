@@ -4,7 +4,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "prod"
-      team: "turkiz"
       division: "turkiz"
     virtual_network_name: "turkiz-trusted-prod-hub"
     virtual_network_address_space: "10.113.0.0/24"
@@ -37,7 +36,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "prod"
-      team: "turkiz"
       division: "turkiz"
     virtual_network_name: "turkiz-untrusted-prod-hub"
     virtual_network_address_space: "10.113.1.0/24"
@@ -70,7 +68,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "ppd"
-      team: "turkiz"
       division: "turkiz"
     virtual_network_name: "turkiz-trusted-ppd-hub"
     virtual_network_address_space: "10.113.2.0/24"
@@ -103,7 +100,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "ppd"
-      team: "turkiz"
       division: "turkiz"
     virtual_network_name: "turkiz-untrusted-ppd-hub"
     virtual_network_address_space: "10.113.3.0/24"
