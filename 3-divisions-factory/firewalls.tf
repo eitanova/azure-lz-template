@@ -7,7 +7,7 @@ module "division_trusted_prod_firewall" {
   virtual_network_name    = local.trusted_prod_hub.virtual_network_name
 
   providers = {
-    azurerm = azurerm.current-trusted-prod
+    azurerm = azurerm.current-trusted-prd
   }
 
   depends_on = [module.division_trusted_prod_hub]
@@ -22,7 +22,7 @@ module "division_untrusted_prod_firewall" {
   virtual_network_name    = local.untrusted_prod_hub.virtual_network_name
 
   providers = {
-    azurerm = azurerm.current-untrusted-prod
+    azurerm = azurerm.current-untrusted-prd
   }
 
   depends_on = [module.division_untrusted_prod_hub]

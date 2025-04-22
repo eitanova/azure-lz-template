@@ -3,8 +3,8 @@ This stage focuses on setting up shared services resources that operate at a glo
 
 ### RESOURCES
 This section describe which resources will be created at this stage
-- Internet connectivity components (vnets, palo alto firewall, vpn gateway, etc...) for both dev and prod environments
-- On-Prem connectivity components (vnets, vpn, etc..) for both dev and prod environments
+- Internet connectivity components (vnets, palo alto firewall, vpn gateway, etc...) for both dev and prd environments
+- On-Prem connectivity components (vnets, vpn, etc..) for both dev and prd environments
 - Management components with connection to palo alto panorama in other cloud
 - Security components (not cross cloud security)
 - Trusted / untrusted zones for dev

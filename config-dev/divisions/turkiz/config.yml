@@ -1,11 +1,11 @@
 hubs:
-  trusted-prod:
-    resource_group_name: "turkiz-trusted-prod-rg"
+  trusted-prd:
+    resource_group_name: "turkiz-trusted-prd-rg"
     resource_group_location: "Israel Central"
     resource_group_tags:
-      env: "prod"
+      env: "prd"
       division: "turkiz"
-    virtual_network_name: "turkiz-trusted-prod-hub"
+    virtual_network_name: "turkiz-trusted-prd-hub"
     virtual_network_address_space: "10.113.0.0/24"
     dns_servers: []
     subnets:
@@ -13,13 +13,13 @@ hubs:
         address_prefixes:
           - 10.113.0.0/28
     route_table:
-      name: "udr-turkiz-trusted-prod"
+      name: "udr-turkiz-trusted-prd"
       route_name: "default-route"
       destination_prefix: "0.0.0.0/0"
       next_hop_type: "VirtualAppliance"
       next_hop_ip: "1.1.1.1"
     firewall_config:
-      name: "turkiz-trusted-prod-fw"
+      name: "turkiz-trusted-prd-fw"
       sku_name: "AZFW_Hub"
       sku_tier: "Standard"
       threat_intel_mode: "Alert"
@@ -31,13 +31,13 @@ hubs:
         public_ip_count: 1
         subnet_id: "palo"
 
-  untrusted-prod:
-    resource_group_name: "turkiz-untrusted-prod-rg"
+  untrusted-prd:
+    resource_group_name: "turkiz-untrusted-prd-rg"
     resource_group_location: "Israel Central"
     resource_group_tags:
-      env: "prod"
+      env: "prd"
       division: "turkiz"
-    virtual_network_name: "turkiz-untrusted-prod-hub"
+    virtual_network_name: "turkiz-untrusted-prd-hub"
     virtual_network_address_space: "10.113.1.0/24"
     dns_servers: []
     subnets:
@@ -45,13 +45,13 @@ hubs:
         address_prefixes:
           - 10.113.1.0/28
     route_table:
-      name: "udr-turkiz-untrusted-prod"
+      name: "udr-turkiz-untrusted-prd"
       route_name: "default-route"
       destination_prefix: "0.0.0.0/0"
       next_hop_type: "VirtualAppliance"
       next_hop_ip: "1.1.1.1"
     firewall_config:
-      name: "turkiz-untrusted-prod-fw"
+      name: "turkiz-untrusted-prd-fw"
       sku_name: "AZFW_Hub"
       sku_tier: "Standard"
       threat_intel_mode: "Alert"

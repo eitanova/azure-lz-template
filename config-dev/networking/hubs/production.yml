@@ -1,11 +1,11 @@
 hubs:
-  internet-prod:
-    resource_group_name: "internet-prod-rg"
+  internet-prd:
+    resource_group_name: "internet-prd-rg"
     resource_group_location: "Israel Central"
     resource_group_tags:
-      env: "prod"
+      env: "prd"
       team: "network"
-    virtual_network_name: "internet-prod-hub"
+    virtual_network_name: "internet-prd-hub"
     virtual_network_address_space: "10.112.4.0/24"
     dns_servers: []
     subnets:
@@ -13,7 +13,7 @@ hubs:
         address_prefixes:
           - 10.112.4.0/28
     route_table:
-      name: "udr-internet-prod"
+      name: "udr-internet-prd"
       route_name: "default-route"
       destination_prefix: "0.0.0.0/0"
       next_hop_type: "VirtualAppliance"

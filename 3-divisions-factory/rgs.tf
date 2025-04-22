@@ -6,7 +6,7 @@ module "division_trusted_prod_rg" {
   tags     = local.trusted_prod_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-trusted-prod
+    azurerm = azurerm.current-trusted-prd
   }
 }
 
@@ -18,7 +18,7 @@ module "division_untrusted_prod_rg" {
   tags     = local.untrusted_prod_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-untrusted-prod
+    azurerm = azurerm.current-untrusted-prd
   }
 }
 

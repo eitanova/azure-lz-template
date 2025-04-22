@@ -9,7 +9,7 @@ resource "azurerm_virtual_network_peering" "untrusted_prod_to_internet" {
   allow_gateway_transit        = false
   use_remote_gateways          = false
 
-  provider   = azurerm.current-untrusted-prod
+  provider   = azurerm.current-untrusted-prd
   depends_on = [module.division_untrusted_prod_hub]
 }
 
@@ -67,7 +67,7 @@ resource "azurerm_virtual_network_peering" "trusted_prod_to_on_prem" {
   allow_gateway_transit        = false
   use_remote_gateways          = false
 
-  provider   = azurerm.current-trusted-prod
+  provider   = azurerm.current-trusted-prd
   depends_on = [module.division_trusted_prod_hub]
 }
 

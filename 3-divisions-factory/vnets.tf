@@ -10,7 +10,7 @@ module "division_trusted_prod_hub" {
   route_table                   = local.trusted_prod_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-trusted-prod
+    azurerm = azurerm.current-trusted-prd
   }
 
   depends_on = [module.division_trusted_prod_rg]
@@ -28,7 +28,7 @@ module "division_untrusted_prod_hub" {
   route_table                   = local.untrusted_prod_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-untrusted-prod
+    azurerm = azurerm.current-untrusted-prd
   }
 
   depends_on = [module.division_untrusted_prod_rg]
