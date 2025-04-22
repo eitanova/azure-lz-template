@@ -12,3 +12,9 @@ hubs:
       GatewaySubnet:
         address_prefixes:
           - 10.112.4.0/28
+    route_table:
+      name: "udr-mgmt"
+      route_name: "default-route"
+      destination_prefix: "0.0.0.0/0"
+      next_hop_type: "VirtualAppliance"
+      next_hop_ip: "1.1.1.1"
