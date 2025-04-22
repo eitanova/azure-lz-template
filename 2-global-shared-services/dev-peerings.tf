@@ -9,6 +9,8 @@ resource "azurerm_virtual_network_peering" "untrusted_dev_to_dev_internet" {
   use_remote_gateways          = false # set this to true after creating the hub vnet gateway
 
   depends_on = [module.untrusted_dev_hub]
+
+  provider = azurerm.untrusted-dev
 }
 
 resource "azurerm_virtual_network_peering" "dev_internet_to_untrusted_dev" {
