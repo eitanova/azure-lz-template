@@ -1,47 +1,132 @@
-name: Turkiz
-type: division
+hubs:
+  trusted-prod:
+    resource_group_name: "turkiz-trusted-prod-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "prod"
+      team: "turkiz"
+      division: "turkiz"
+    virtual_network_name: "turkiz-trusted-prod-hub"
+    virtual_network_address_space: "10.113.0.0/24"
+    dns_servers: []
+    subnets:
+      palo:
+        address_prefixes:
+          - 10.113.0.0/28
+    route_table:
+      name: "udr-turkiz-trusted-prod"
+      route_name: "default-route"
+      destination_prefix: "0.0.0.0/0"
+      next_hop_type: "VirtualAppliance"
+      next_hop_ip: "1.1.1.1"
+    firewall_config:
+      name: "turkiz-trusted-prod-fw"
+      sku_name: "AZFW_Hub"
+      sku_tier: "Standard"
+      threat_intel_mode: "Alert"
+      dns_servers: []
+      private_ip_ranges: []
+      zones: ["1", "2", "3"]
+      ip_configuration:
+        name: "ipconfig1"
+        public_ip_count: 1
+        subnet_id: "palo"
 
-environments:
-  dev: {}
-    # shared_services:
-    #   networking:
-    #     rbac:
-    #     tags:
-    #   logging: {}
+  untrusted-prod:
+    resource_group_name: "turkiz-untrusted-prod-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "prod"
+      team: "turkiz"
+      division: "turkiz"
+    virtual_network_name: "turkiz-untrusted-prod-hub"
+    virtual_network_address_space: "10.113.1.0/24"
+    dns_servers: []
+    subnets:
+      palo:
+        address_prefixes:
+          - 10.113.1.0/28
+    route_table:
+      name: "udr-turkiz-untrusted-prod"
+      route_name: "default-route"
+      destination_prefix: "0.0.0.0/0"
+      next_hop_type: "VirtualAppliance"
+      next_hop_ip: "1.1.1.1"
+    firewall_config:
+      name: "turkiz-untrusted-prod-fw"
+      sku_name: "AZFW_Hub"
+      sku_tier: "Standard"
+      threat_intel_mode: "Alert"
+      dns_servers: []
+      private_ip_ranges: []
+      zones: ["1", "2", "3"]
+      ip_configuration:
+        name: "ipconfig1"
+        public_ip_count: 1
+        subnet_id: "palo"
 
-  prd:
-    shared_services:
-      networking:
-        untrusted:
-          address_space:
-            - 10.113.0.0/24
-          subnets:
-           AzureFirewallSubnet:
-            address_prefixes:
-              - 10.113.0.0/28
+  trusted-ppd:
+    resource_group_name: "turkiz-trusted-ppd-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "ppd"
+      team: "turkiz"
+      division: "turkiz"
+    virtual_network_name: "turkiz-trusted-ppd-hub"
+    virtual_network_address_space: "10.113.2.0/24"
+    dns_servers: []
+    subnets:
+      palo:
+        address_prefixes:
+          - 10.113.2.0/28
+    route_table:
+      name: "udr-turkiz-trusted-ppd"
+      route_name: "default-route"
+      destination_prefix: "0.0.0.0/0"
+      next_hop_type: "VirtualAppliance"
+      next_hop_ip: "1.1.1.1"
+    firewall_config:
+      name: "turkiz-trusted-ppd-fw"
+      sku_name: "AZFW_Hub"
+      sku_tier: "Standard"
+      threat_intel_mode: "Alert"
+      dns_servers: []
+      private_ip_ranges: []
+      zones: ["1", "2", "3"]
+      ip_configuration:
+        name: "ipconfig1"
+        public_ip_count: 1
+        subnet_id: "palo"
 
-        trusted:
-          address_space:
-            - 10.113.1.0/24
-          subnets:
-           AzureFirewallSubnet:
-            address_prefixes:
-              - 10.113.1.0/28
-  ppd:
-    shared_services:
-      networking:
-        untrusted:
-          address_space:
-            - 10.113.0.0/24
-          subnets:
-            AzureFirewallSubnet:
-              address_prefixes:
-                - 10.113.0.0/28
-        trusted:
-          address_space:
-            - 10.113.1.0/24
-          subnets:
-            AzureFirewallSubnet:
-              address_prefixes:
-                - 10.113.1.0/28
-        
+  untrusted-ppd:
+    resource_group_name: "turkiz-untrusted-ppd-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "ppd"
+      team: "turkiz"
+      division: "turkiz"
+    virtual_network_name: "turkiz-untrusted-ppd-hub"
+    virtual_network_address_space: "10.113.3.0/24"
+    dns_servers: []
+    subnets:
+      palo:
+        address_prefixes:
+          - 10.113.3.0/28
+    route_table:
+      name: "udr-turkiz-untrusted-ppd"
+      route_name: "default-route"
+      destination_prefix: "0.0.0.0/0"
+      next_hop_type: "VirtualAppliance"
+      next_hop_ip: "1.1.1.1"
+    firewall_config:
+      name: "turkiz-untrusted-ppd-fw"
+      sku_name: "AZFW_Hub"
+      sku_tier: "Standard"
+      threat_intel_mode: "Alert"
+      dns_servers: []
+      private_ip_ranges: []
+      zones: ["1", "2", "3"]
+      ip_configuration:
+        name: "ipconfig1"
+        public_ip_count: 1
+        subnet_id: "palo"
