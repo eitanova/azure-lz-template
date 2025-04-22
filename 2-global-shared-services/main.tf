@@ -10,7 +10,7 @@ locals {
   )
 }
 
-module "internet-prd-rg" {
+module "internet_prd_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-prd"].resource_group_name
@@ -22,7 +22,7 @@ module "internet-prd-rg" {
   }
 }
 
-module "internet-prd-hub" {
+module "internet_prd_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["internet-prd"].resource_group_name
@@ -37,10 +37,10 @@ module "internet-prd-hub" {
     azurerm = azurerm.internet-prd
   }
 
-  depends_on = [module.internet-prd-rg]
+  depends_on = [module.internet_prd_rg]
 }
 
-module "internet-dev-rg" {
+module "internet_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-dev"].resource_group_name
@@ -52,7 +52,7 @@ module "internet-dev-rg" {
   }
 }
 
-module "internet-dev-hub" {
+module "internet_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["internet-dev"].resource_group_name
@@ -67,10 +67,10 @@ module "internet-dev-hub" {
     azurerm = azurerm.internet-dev
   }
 
-  depends_on = [module.internet-dev-rg]
+  depends_on = [module.internet_dev_rg]
 }
 
-module "trusted-dev-rg" {
+module "trusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["trusted-dev"].resource_group_name
@@ -82,7 +82,7 @@ module "trusted-dev-rg" {
   }
 }
 
-module "trusted-dev-hub" {
+module "trusted_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["trusted-dev"].resource_group_name
@@ -97,10 +97,10 @@ module "trusted-dev-hub" {
     azurerm = azurerm.trusted-dev
   }
 
-  depends_on = [module.trusted-dev-rg]
+  depends_on = [module.trusted_dev_rg]
 }
 
-module "untrusted-dev-rg" {
+module "untrusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["untrusted-dev"].resource_group_name
@@ -112,7 +112,7 @@ module "untrusted-dev-rg" {
   }
 }
 
-module "untrusted-dev-hub" {
+module "untrusted_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["untrusted-dev"].resource_group_name
@@ -127,10 +127,10 @@ module "untrusted-dev-hub" {
     azurerm = azurerm.untrusted-dev
   }
 
-  depends_on = [module.untrusted-dev-rg]
+  depends_on = [module.untrusted_dev_rg]
 }
 
-module "mgmt-rg" {
+module "mgmt_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["mgmt"].resource_group_name
@@ -142,7 +142,7 @@ module "mgmt-rg" {
   }
 }
 
-module "mgmt-hub" {
+module "mgmt_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["mgmt"].resource_group_name
@@ -157,10 +157,10 @@ module "mgmt-hub" {
     azurerm = azurerm.mgmt
   }
 
-  depends_on = [module.mgmt-rg]
+  depends_on = [module.mgmt_rg]
 }
 
-module "on-prem-rg" {
+module "on_prem_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["on-prem"].resource_group_name
@@ -172,7 +172,7 @@ module "on-prem-rg" {
   }
 }
 
-module "on-prem-hub" {
+module "on_prem_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["on-prem"].resource_group_name
@@ -187,5 +187,5 @@ module "on-prem-hub" {
     azurerm = azurerm.on-prem
   }
 
-  depends_on = [module.on-prem-rg]
+  depends_on = [module.on_prem_rg]
 }

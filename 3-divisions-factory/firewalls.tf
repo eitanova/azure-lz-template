@@ -1,4 +1,4 @@
-module "division-trusted-prod-firewall" {
+module "division_trusted_prod_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.trusted_prod_hubs[var.division_name].firewall_config
@@ -10,10 +10,10 @@ module "division-trusted-prod-firewall" {
     azurerm = azurerm.current-trusted-prod
   }
 
-  depends_on = [module.division-trusted-prod-hub]
+  depends_on = [module.division_trusted_prod_hub]
 }
 
-module "division-untrusted-prod-firewall" {
+module "division_untrusted_prod_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.untrusted_prod_hubs[var.division_name].firewall_config
@@ -25,10 +25,10 @@ module "division-untrusted-prod-firewall" {
     azurerm = azurerm.current-untrusted-prod
   }
 
-  depends_on = [module.division-untrusted-prod-hub]
+  depends_on = [module.division_untrusted_prod_hub]
 }
 
-module "division-trusted-ppd-firewall" {
+module "division_trusted_ppd_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.trusted_ppd_hubs[var.division_name].firewall_config
@@ -40,10 +40,10 @@ module "division-trusted-ppd-firewall" {
     azurerm = azurerm.current-trusted-ppd
   }
 
-  depends_on = [module.division-trusted-ppd-hub]
+  depends_on = [module.division_trusted_ppd_hub]
 }
 
-module "division-untrusted-ppd-firewall" {
+module "division_untrusted_ppd_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.untrusted_ppd_hubs[var.division_name].firewall_config
@@ -55,5 +55,5 @@ module "division-untrusted-ppd-firewall" {
     azurerm = azurerm.current-untrusted-ppd
   }
 
-  depends_on = [module.division-untrusted-ppd-hub]
+  depends_on = [module.division_untrusted_ppd_hub]
 }

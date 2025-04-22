@@ -1,4 +1,4 @@
-module "division-trusted-prod-firewall" {
+module "division_trusted_prod_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.global_hubs["trusted-dev"].firewall_config
@@ -10,10 +10,10 @@ module "division-trusted-prod-firewall" {
     azurerm = azurerm.trusted-dev
   }
 
-  depends_on = [module.trusted-dev-hub]
+  depends_on = [module.trusted_dev_hub]
 }
 
-module "division-untrusted-prod-firewall" {
+module "division_untrusted_prod_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.global_hubs["untrusted-dev"].firewall_config
@@ -25,5 +25,5 @@ module "division-untrusted-prod-firewall" {
     azurerm = azurerm.untrusted-dev
   }
 
-  depends_on = [module.untrusted-dev-hub]
+  depends_on = [module.untrusted_dev_hub]
 }
