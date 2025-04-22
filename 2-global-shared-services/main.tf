@@ -10,13 +10,19 @@ locals {
   )
 }
 
+module "internet-prd-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["internet-prd"].resource_group_name
+  location = local.global_hubs["internet-prd"].resource_group_location
+  tags     = local.global_hubs["internet-prd"].resource_group_tags
+}
 
 module "internet-prd-hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["internet-prd"].resource_group_name
   resource_group_location       = local.global_hubs["internet-prd"].resource_group_location
-  resource_group_tags           = local.global_hubs["internet-prd"].resource_group_tags
   virtual_network_name          = local.global_hubs["internet-prd"].virtual_network_name
   virtual_network_address_space = local.global_hubs["internet-prd"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-prd"].dns_servers
@@ -26,6 +32,16 @@ module "internet-prd-hub" {
   providers = {
     azurerm = azurerm.internet-prd
   }
+
+  depends_on = [module.internet-prd-rg]
+}
+
+module "internet-dev-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["internet-dev"].resource_group_name
+  location = local.global_hubs["internet-dev"].resource_group_location
+  tags     = local.global_hubs["internet-dev"].resource_group_tags
 }
 
 module "internet-dev-hub" {
@@ -33,7 +49,6 @@ module "internet-dev-hub" {
 
   resource_group_name           = local.global_hubs["internet-dev"].resource_group_name
   resource_group_location       = local.global_hubs["internet-dev"].resource_group_location
-  resource_group_tags           = local.global_hubs["internet-dev"].resource_group_tags
   virtual_network_name          = local.global_hubs["internet-dev"].virtual_network_name
   virtual_network_address_space = local.global_hubs["internet-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-dev"].dns_servers
@@ -43,23 +58,42 @@ module "internet-dev-hub" {
   providers = {
     azurerm = azurerm.internet-dev
   }
+
+  depends_on = [module.internet-dev-rg]
+}
+
+module "trusted-dev-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["trusted-dev"].resource_group_name
+  location = local.global_hubs["trusted-dev"].resource_group_location
+  tags     = local.global_hubs["trusted-dev"].resource_group_tags
 }
 
 module "trusted-dev-hub" {
   source = "../modules/hub-vnet"
 
-  resource_group_name           = local.global_hubs["internet-dev"].resource_group_name
-  resource_group_location       = local.global_hubs["internet-dev"].resource_group_location
-  resource_group_tags           = local.global_hubs["internet-dev"].resource_group_tags
-  virtual_network_name          = local.global_hubs["internet-dev"].virtual_network_name
-  virtual_network_address_space = local.global_hubs["internet-dev"].virtual_network_address_space
-  dns_servers                   = local.global_hubs["internet-dev"].dns_servers
-  subnets                       = local.global_hubs["internet-dev"].subnets
-  route_table                   = local.global_hubs["internet-dev"].route_table
+  resource_group_name           = local.global_hubs["trusted-dev"].resource_group_name
+  resource_group_location       = local.global_hubs["trusted-dev"].resource_group_location
+  virtual_network_name          = local.global_hubs["trusted-dev"].virtual_network_name
+  virtual_network_address_space = local.global_hubs["trusted-dev"].virtual_network_address_space
+  dns_servers                   = local.global_hubs["trusted-dev"].dns_servers
+  subnets                       = local.global_hubs["trusted-dev"].subnets
+  route_table                   = local.global_hubs["trusted-dev"].route_table
 
   providers = {
-    azurerm = azurerm.internet-dev
+    azurerm = azurerm.trusted-dev
   }
+
+  depends_on = [module.trusted-dev-rg]
+}
+
+module "untrusted-dev-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["untrusted-dev"].resource_group_name
+  location = local.global_hubs["untrusted-dev"].resource_group_location
+  tags     = local.global_hubs["untrusted-dev"].resource_group_tags
 }
 
 module "untrusted-dev-hub" {
@@ -67,7 +101,6 @@ module "untrusted-dev-hub" {
 
   resource_group_name           = local.global_hubs["untrusted-dev"].resource_group_name
   resource_group_location       = local.global_hubs["untrusted-dev"].resource_group_location
-  resource_group_tags           = local.global_hubs["untrusted-dev"].resource_group_tags
   virtual_network_name          = local.global_hubs["untrusted-dev"].virtual_network_name
   virtual_network_address_space = local.global_hubs["untrusted-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["untrusted-dev"].dns_servers
@@ -77,6 +110,16 @@ module "untrusted-dev-hub" {
   providers = {
     azurerm = azurerm.untrusted-dev
   }
+
+  depends_on = [module.untrusted-dev-rg]
+}
+
+module "mgmt-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["mgmt"].resource_group_name
+  location = local.global_hubs["mgmt"].resource_group_location
+  tags     = local.global_hubs["mgmt"].resource_group_tags
 }
 
 module "mgmt-hub" {
@@ -84,7 +127,6 @@ module "mgmt-hub" {
 
   resource_group_name           = local.global_hubs["mgmt"].resource_group_name
   resource_group_location       = local.global_hubs["mgmt"].resource_group_location
-  resource_group_tags           = local.global_hubs["mgmt"].resource_group_tags
   virtual_network_name          = local.global_hubs["mgmt"].virtual_network_name
   virtual_network_address_space = local.global_hubs["mgmt"].virtual_network_address_space
   dns_servers                   = local.global_hubs["mgmt"].dns_servers
@@ -94,6 +136,16 @@ module "mgmt-hub" {
   providers = {
     azurerm = azurerm.mgmt
   }
+
+  depends_on = [module.mgmt-rg]
+}
+
+module "on-prem-rg" {
+  source = "../modules/resource-group"
+
+  name     = local.global_hubs["on-prem"].resource_group_name
+  location = local.global_hubs["on-prem"].resource_group_location
+  tags     = local.global_hubs["on-prem"].resource_group_tags
 }
 
 module "on-prem-hub" {
@@ -101,7 +153,6 @@ module "on-prem-hub" {
 
   resource_group_name           = local.global_hubs["on-prem"].resource_group_name
   resource_group_location       = local.global_hubs["on-prem"].resource_group_location
-  resource_group_tags           = local.global_hubs["on-prem"].resource_group_tags
   virtual_network_name          = local.global_hubs["on-prem"].virtual_network_name
   virtual_network_address_space = local.global_hubs["on-prem"].virtual_network_address_space
   dns_servers                   = local.global_hubs["on-prem"].dns_servers
@@ -111,4 +162,6 @@ module "on-prem-hub" {
   providers = {
     azurerm = azurerm.on-prem
   }
+
+  depends_on = [module.on-prem-rg]
 }

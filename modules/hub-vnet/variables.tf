@@ -8,12 +8,6 @@ variable "resource_group_location" {
   type        = string
 }
 
-variable "resource_group_tags" {
-  description = "A map of tags to apply to the resource group and its resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "virtual_network_name" {
   description = "The name of the Azure Virtual Network to be created."
   type        = string
