@@ -12,9 +12,3 @@ variable "location" {
   type        = string
   default     = null
 }
-
-variable "subscription_id" {
-  description = "subscription id for remote provider"
-  type = string
-  default = null
-}
