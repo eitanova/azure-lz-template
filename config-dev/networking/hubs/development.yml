@@ -1,28 +1,36 @@
-vnets: 
-  internet:
-    parent: egress
-    address_space:
-      - 10.112.0.0/24
+hubs:
+  internet-dev:
+    resource_group_name: "internet-dev-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "dev"
+      team: "network"
+    virtual_network_name: "internet-dev-hub"
+    virtual_network_address_space: "10.112.0.0/24"
+    dns_servers: []
     subnets:
       palo:
-        address_prefixes: 
+        address_prefixes:
           - 10.112.0.0/28
-    peering: # this can only be added after all vnets are created
-      dev-to-mgmt:
-        target_id: /subscriptions/1cc1d425-1863-49c9-8c93-7a619d4c3576/resourceGroups/egress/providers/Microsoft.Network/virtualNetworks/gateway
-  
-  trusted:
-    parent: trusted
-    address_space:
-      - 10.112.1.0/24
-  
-  untrusted:
-    parent: untrusted
-    address_space:
-      - 10.112.2.0/24
 
-resource_groups:
-  egress: {}
-  trusted: {}
-  on-prem: {}
-  untrusted: {}
+  trusted-dev:
+    resource_group_name: "trusted-dev-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "dev"
+      team: "network"
+    virtual_network_name: "trusted-dev-hub"
+    virtual_network_address_space: "10.112.1.0/24"
+    dns_servers: []
+    subnets: {}
+
+  untrusted-dev:
+    resource_group_name: "untrusted-dev-rg"
+    resource_group_location: "Israel Central"
+    resource_group_tags:
+      env: "dev"
+      team: "network"
+    virtual_network_name: "untrusted-dev-hub"
+    virtual_network_address_space: "10.112.2.0/24"
+    dns_servers: []
+    subnets: {}
