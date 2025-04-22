@@ -2,3 +2,33 @@ variable "division_name" {
   type        = string
   description = "The name of the division to create the Hub for"
 }
+
+variable "prod_internet_vnet_id" {
+  type        = string
+  description = "The id of the internet hub vnet for the prod spoke"
+}
+
+variable "prod_internet_vnet_name" {
+  type        = string
+  description = "The name of the internet hub vnet for the prod spoke"
+}
+
+variable "dev_internet_vnet_id" {
+  type        = string
+  description = "The id of the internet hub vnet for the dev spoke"
+}
+
+variable "dev_internet_vnet_name" {
+  type        = string
+  description = "The name of the internet hub vnet for the dev spoke"
+}
+
+variable "on_prem_vnet_id" {
+  type        = string
+  description = "The id of the on prem hub vnet"
+}
+
+variable "on_prem_vnet_name" {
+  type        = string
+  description = "The name of the internet hub vnet for the dev spoke"
+}
