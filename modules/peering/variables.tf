@@ -1,4 +1,4 @@
-variable "source" {
+variable "source_peering" {
   description = "source peering details"
   type = object({
     name                         = string
@@ -11,7 +11,7 @@ variable "source" {
     use_remote_gateways          = optional(bool, false)
   })
 }
-variable "target" {
+variable "target_peering" {
   description = "target peering details"
   type = object({
     name                         = string
