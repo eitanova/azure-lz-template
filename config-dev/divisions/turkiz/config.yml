@@ -71,10 +71,6 @@ hubs:
       dns_servers: []
       private_ip_ranges: []
       zones: ["1", "2", "3"]
-      ip_configuration:
-        name: "ipconfig1"
-        public_ip_count: 1
-        subnet_id: "palo"
 
   untrusted-prd:
     resource_group_name: "turkiz-untrusted-prd-rg"
@@ -103,10 +99,6 @@ hubs:
       dns_servers: []
       private_ip_ranges: []
       zones: ["1", "2", "3"]
-      ip_configuration:
-        name: "ipconfig1"
-        public_ip_count: 1
-        subnet_id: "palo"
 
   trusted-ppd:
     resource_group_name: "turkiz-trusted-ppd-rg"
@@ -135,10 +127,6 @@ hubs:
       dns_servers: []
       private_ip_ranges: []
       zones: ["1", "2", "3"]
-      ip_configuration:
-        name: "ipconfig1"
-        public_ip_count: 1
-        subnet_id: "palo"
 
   untrusted-ppd:
     resource_group_name: "turkiz-untrusted-ppd-rg"
@@ -167,7 +155,3 @@ hubs:
       dns_servers: []
       private_ip_ranges: []
       zones: ["1", "2", "3"]
-      ip_configuration:
-        name: "ipconfig1"
-        public_ip_count: 1
-        subnet_id: "palo"
