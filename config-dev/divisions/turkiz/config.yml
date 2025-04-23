@@ -30,6 +30,12 @@ environments:
             threat_intel_mode: "Alert"
             private_ip_ranges: []
             zones: ["1", "2", "3"]
+            public_ip_allocation_method: "Static"
+            public_ip_sku: "Standard"
+            subnet_address_prefix: "10.113.3.64/26"
+            tags:
+              env: "ppd"
+              division: "turkiz"
         trusted:
           resource_group_name: "turkiz-trusted-ppd-rg"
           resource_group_tags:
@@ -53,6 +59,12 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             zones: ["1", "2", "3"]
+            public_ip_allocation_method: "Static"
+            public_ip_sku: "Standard"
+            subnet_address_prefix: "10.113.2.64/26"
+            tags:
+              env: "ppd"
+              division: "turkiz"
   prd:
     shared_services:
       networking:
@@ -79,6 +91,12 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             zones: ["1", "2", "3"]
+            public_ip_allocation_method: "Static"
+            public_ip_sku: "Standard"
+            subnet_address_prefix: "10.113.1.64/26"
+            tags:
+              env: "prd"
+              division: "turkiz"
         trusted:
           resource_group_name: "turkiz-trusted-prd-rg"
           resource_group_tags:
@@ -102,3 +120,9 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             zones: ["1", "2", "3"]
+            public_ip_allocation_method: "Static"
+            public_ip_sku: "Standard"
+            subnet_address_prefix: "10.113.0.64/26"
+            tags:
+              env: "prd"
+              division: "turkiz"
