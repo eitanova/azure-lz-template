@@ -13,7 +13,7 @@ module "shared-services-subscriptions" {
   source   = "../modules/subscription"
   for_each = local.subscriptions
 
-  alias        = each.key.alias
+  alias        = each.value.alias
   display_name = each.value.display_name
   tags         = each.value.tags
 
