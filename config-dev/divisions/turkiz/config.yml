@@ -29,7 +29,6 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             threat_intel_mode: "Alert"
-            dns_servers: []
             private_ip_ranges: []
             zones: ["1", "2", "3"]
         trusted:
@@ -56,7 +55,6 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             threat_intel_mode: "Alert"
-            dns_servers: []
             private_ip_ranges: []
             zones: ["1", "2", "3"]
   prd:
@@ -86,7 +84,6 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             threat_intel_mode: "Alert"
-            dns_servers: []
             private_ip_ranges: []
             zones: ["1", "2", "3"]
         trusted:
@@ -113,6 +110,5 @@ environments:
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
             threat_intel_mode: "Alert"
-            dns_servers: []
             private_ip_ranges: []
             zones: ["1", "2", "3"]
