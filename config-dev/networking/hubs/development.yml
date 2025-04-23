@@ -26,10 +26,7 @@ hubs:
     virtual_network_name: "trusted-dev-hub"
     virtual_network_address_space: "10.112.1.0/24"
     dns_servers: []
-    subnets:
-      AzureFirewallSubnet:
-        address_prefixes:
-          - 10.112.1.0/26
+    subnets: {}
     route_table:
       name: "udr-trusted-dev"
       route_name: "default-route"
@@ -45,10 +42,7 @@ hubs:
     virtual_network_name: "untrusted-dev-hub"
     virtual_network_address_space: "10.112.2.0/24"
     dns_servers: []
-    subnets:
-      AzureFirewallSubnet:
-        address_prefixes:
-          - 10.112.2.0/26
+    subnets: {}
     route_table:
       name: "udr-untrusted-dev"
       route_name: "default-route"
