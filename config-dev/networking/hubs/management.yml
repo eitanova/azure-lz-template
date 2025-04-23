@@ -1,7 +1,6 @@
 hubs:
   mgmt:
     resource_group_name: "mgmt-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "mgmt"
     virtual_network_name: "mgmt-hub"

@@ -13,7 +13,7 @@ module "trusted_dev_firewall" {
   }
 
   resource_group_name     = local.global_hubs["trusted-dev"].resource_group_name
-  resource_group_location = local.global_hubs["trusted-dev"].resource_group_location
+  resource_group_location = var.tenant.location
   virtual_network_name    = local.global_hubs["trusted-dev"].virtual_network_name
 
   providers = {
@@ -38,7 +38,7 @@ module "untrusted_dev_firewall" {
   }
 
   resource_group_name     = local.global_hubs["untrusted-dev"].resource_group_name
-  resource_group_location = local.global_hubs["untrusted-dev"].resource_group_location
+  resource_group_location = var.tenant.location
   virtual_network_name    = local.global_hubs["untrusted-dev"].virtual_network_name
 
   providers = {
@@ -46,4 +46,4 @@ module "untrusted_dev_firewall" {
   }
 
   depends_on = [module.untrusted_dev_hub]
-} 
+}

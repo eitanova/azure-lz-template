@@ -1,7 +1,6 @@
 hubs:
   internet-prd:
     resource_group_name: "internet-prd-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "prd"
     virtual_network_name: "internet-prd-hub"
@@ -20,7 +19,6 @@ hubs:
 
   on-prem:
     resource_group_name: "on-prem-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "onprem"
     virtual_network_name: "on-prem-hub"

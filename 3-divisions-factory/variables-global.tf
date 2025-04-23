@@ -17,5 +17,6 @@ variable "tenant" {
     prefix             = optional(string, null)
     billing_name       = string
     enrollment_account = string
+    locations          = string
   })
 }

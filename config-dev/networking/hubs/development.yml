@@ -1,7 +1,6 @@
 hubs:
   internet-dev:
     resource_group_name: "internet-dev-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
     virtual_network_name: "internet-dev-hub"
@@ -20,7 +19,6 @@ hubs:
 
   trusted-dev:
     resource_group_name: "trusted-dev-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
     virtual_network_name: "trusted-dev-hub"
@@ -36,7 +34,6 @@ hubs:
 
   untrusted-dev:
     resource_group_name: "untrusted-dev-rg"
-    resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
     virtual_network_name: "untrusted-dev-hub"

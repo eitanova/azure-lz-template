@@ -2,7 +2,7 @@ module "internet_prd_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-prd"].resource_group_name
-  location = local.global_hubs["internet-prd"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["internet-prd"].resource_group_tags
 
   providers = {
@@ -14,7 +14,7 @@ module "internet_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-dev"].resource_group_name
-  location = local.global_hubs["internet-dev"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["internet-dev"].resource_group_tags
 
   providers = {
@@ -26,7 +26,7 @@ module "trusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["trusted-dev"].resource_group_name
-  location = local.global_hubs["trusted-dev"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["trusted-dev"].resource_group_tags
 
   providers = {
@@ -38,7 +38,7 @@ module "untrusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["untrusted-dev"].resource_group_name
-  location = local.global_hubs["untrusted-dev"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["untrusted-dev"].resource_group_tags
 
   providers = {
@@ -50,7 +50,7 @@ module "mgmt_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["mgmt"].resource_group_name
-  location = local.global_hubs["mgmt"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["mgmt"].resource_group_tags
 
   providers = {
@@ -62,10 +62,10 @@ module "on_prem_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["on-prem"].resource_group_name
-  location = local.global_hubs["on-prem"].resource_group_location
+  location = var.tenant.location
   tags     = local.global_hubs["on-prem"].resource_group_tags
 
   providers = {
     azurerm = azurerm.on-prem
   }
-} 
+}

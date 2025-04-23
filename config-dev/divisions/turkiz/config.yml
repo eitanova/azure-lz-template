@@ -7,7 +7,6 @@ environments:
       networking:
         untrusted:
           resource_group_name: "turkiz-untrusted-ppd-rg"
-          resource_group_location: "Israel Central"
           resource_group_tags:
             env: "ppd"
             division: "turkiz"
@@ -33,7 +32,6 @@ environments:
             zones: ["1", "2", "3"]
         trusted:
           resource_group_name: "turkiz-trusted-ppd-rg"
-          resource_group_location: "Israel Central"
           resource_group_tags:
             env: "ppd"
             division: "turkiz"
@@ -60,7 +58,6 @@ environments:
       networking:
         untrusted:
           resource_group_name: "turkiz-untrusted-prd-rg"
-          resource_group_location: "Israel Central"
           resource_group_tags:
             env: "prd"
             division: "turkiz"
@@ -84,7 +81,6 @@ environments:
             zones: ["1", "2", "3"]
         trusted:
           resource_group_name: "turkiz-trusted-prd-rg"
-          resource_group_location: "Israel Central"
           resource_group_tags:
             env: "prd"
             division: "turkiz"
