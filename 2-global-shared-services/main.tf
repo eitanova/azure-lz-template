@@ -1,9 +1,7 @@
 locals {
-  # todo: replace config-dev with var.paths.config var
-  # todo: you can achieve this with fileset command instead of hardcoding each environment
-  dev_hubs  = yamldecode(file("${path.root}/config-dev/networking/hubs/development.yml"))
-  mgmt_hubs = yamldecode(file("${path.root}/config-dev/networking/hubs/management.yml"))
-  prod_hubs = yamldecode(file("${path.root}/config-dev/networking/hubs/production.yml"))
+  dev_hubs  = yamldecode(file("${var.paths.config}/networking/hubs/development.yml"))
+  mgmt_hubs = yamldecode(file("${var.paths.config}/networking/hubs/management.yml"))
+  prod_hubs = yamldecode(file("${var.paths.config}/networking/hubs/production.yml"))
 
   global_hubs = merge(
     local.dev_hubs.hubs,

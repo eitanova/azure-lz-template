@@ -1,6 +1,6 @@
 locals {
   # Read the division-specific configuration
-  division_config = yamldecode(file("${path.root}/config-dev/divisions/${var.division_name}/config.yml"))
+  division_config = yamldecode(file("${var.paths.config}/divisions/${var.division_name}/config.yml"))
 
   # Map the configuration to the appropriate local variables
   trusted_prod_hub   = local.division_config.environments.prd.shared_services.networking.trusted
