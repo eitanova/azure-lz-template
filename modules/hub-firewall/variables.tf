@@ -1,24 +1,9 @@
 variable "firewall_config" {
-  description = <<EOT
-Configuration for the Azure Firewall and its associated resources.
-{
-  name                        = string               # Name of the firewall
-  sku_name                    = string               # SKU name (e.g. AZFW_VNet)
-  sku_tier                    = string               # SKU tier (Standard, Premium)
-  ip_configuration_name       = string               # Name for the IP configuration block
-  public_ip_allocation_method = string               # "Static" or "Dynamic"
-  public_ip_sku               = string               # Public IP SKU (usually "Standard")
-  zones                       = list(string)         # Availability zones (["1", "2", "3"])
-  subnet_address_prefix       = string               # CIDR for the AzureFirewallSubnet
-  tags                        = map(string)          # Optional resource tags
-}
-EOT
-
+  description = "Configuration for the Azure Firewall"
   type = object({
     name                        = string
     sku_name                    = string
     sku_tier                    = string
-    ip_configuration_name       = string
     public_ip_allocation_method = string
     public_ip_sku               = string
     zones                       = list(string)
