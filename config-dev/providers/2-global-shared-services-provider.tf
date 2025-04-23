@@ -18,3 +18,13 @@ provider "azurerm" {
   subscription_id = var.subscriptions["global/prd/on-prem"].id 
   alias = "on-prem"
 }
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["dev/network/untrusted"].id 
+  alias = "untrusted-dev"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["dev/network/trusted"].id 
+  alias = "trusted-dev"
+}

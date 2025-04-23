@@ -39,10 +39,7 @@ environments:
             dns_servers: []
             private_ip_ranges: []
             zones: ["1", "2", "3"]
-            ip_configuration:
-              name: "ipconfig1"
-              public_ip_count: 1
-              subnet_id: "palo"
+
 hubs:
   trusted-prd:
     resource_group_name: "turkiz-trusted-prd-rg"

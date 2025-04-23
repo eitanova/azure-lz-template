@@ -14,6 +14,31 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "cb6a7a77-cdd1-4d79-974a-d6917ccb4ff7"
-  alias = "trusted"
+  subscription_id = var.subscriptions["prd/turkiz/networking/trusted"].id
+  alias = "trusted-prd"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["prd/turkiz/networking/untrusted"].id
+  alias = "untrusted-prd"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["ppd/turkiz/networking/trusted"].id
+  alias = "trusted-ppd"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["ppd/turkiz/networking/untrusted"].id  
+  alias = "untrusted-ppd"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["global/prd/network"].id
+  alias = "internet"
+}
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscriptions["global/prd/on-prem"].id 
+  alias = "on-prem"
 }
