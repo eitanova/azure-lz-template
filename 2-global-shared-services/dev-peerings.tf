@@ -1,3 +1,6 @@
+# todo: add peering to dev-firewalls.tf file
+# todo: replace this resources and use peering module
+
 resource "azurerm_virtual_network_peering" "untrusted_dev_to_dev_internet" {
   name                         = "${local.global_hubs["untrusted-dev"].virtual_network_name}-to-internet"
   resource_group_name          = local.global_hubs["untrusted-dev"].resource_group_name

@@ -1,4 +1,5 @@
-module "division_trusted_prod_firewall" {
+ 
+ module "division_trusted_prod_firewall" {
   source = "../modules/hub-firewall"
 
   firewall_config         = local.global_hubs["trusted-dev"].firewall_config

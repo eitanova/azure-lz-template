@@ -1,4 +1,6 @@
 locals {
+  # todo: replace config-dev with var.paths.config var
+  # todo: you can achieve this with fileset command instead of hardcoding each environment
   dev_hubs  = yamldecode(file("${path.root}/config-dev/networking/hubs/development.yml"))
   mgmt_hubs = yamldecode(file("${path.root}/config-dev/networking/hubs/management.yml"))
   prod_hubs = yamldecode(file("${path.root}/config-dev/networking/hubs/production.yml"))
@@ -14,7 +16,7 @@ module "internet_prd_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-prd"].resource_group_name
-  location = local.global_hubs["internet-prd"].resource_group_location
+  location = local.global_hubs["internet-prd"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["internet-prd"].resource_group_tags
 
   providers = {
@@ -26,7 +28,7 @@ module "internet_prd_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["internet-prd"].resource_group_name
-  resource_group_location       = local.global_hubs["internet-prd"].resource_group_location
+  resource_group_location       = local.global_hubs["internet-prd"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["internet-prd"].virtual_network_name
   virtual_network_address_space = local.global_hubs["internet-prd"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-prd"].dns_servers
@@ -44,7 +46,7 @@ module "internet_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["internet-dev"].resource_group_name
-  location = local.global_hubs["internet-dev"].resource_group_location
+  location = local.global_hubs["internet-dev"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["internet-dev"].resource_group_tags
 
   providers = {
@@ -56,7 +58,7 @@ module "internet_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["internet-dev"].resource_group_name
-  resource_group_location       = local.global_hubs["internet-dev"].resource_group_location
+  resource_group_location       = local.global_hubs["internet-dev"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["internet-dev"].virtual_network_name
   virtual_network_address_space = local.global_hubs["internet-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-dev"].dns_servers
@@ -74,7 +76,7 @@ module "trusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["trusted-dev"].resource_group_name
-  location = local.global_hubs["trusted-dev"].resource_group_location
+  location = local.global_hubs["trusted-dev"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["trusted-dev"].resource_group_tags
 
   providers = {
@@ -86,7 +88,7 @@ module "trusted_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["trusted-dev"].resource_group_name
-  resource_group_location       = local.global_hubs["trusted-dev"].resource_group_location
+  resource_group_location       = local.global_hubs["trusted-dev"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["trusted-dev"].virtual_network_name
   virtual_network_address_space = local.global_hubs["trusted-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["trusted-dev"].dns_servers
@@ -104,7 +106,7 @@ module "untrusted_dev_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["untrusted-dev"].resource_group_name
-  location = local.global_hubs["untrusted-dev"].resource_group_location
+  location = local.global_hubs["untrusted-dev"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["untrusted-dev"].resource_group_tags
 
   providers = {
@@ -116,7 +118,7 @@ module "untrusted_dev_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["untrusted-dev"].resource_group_name
-  resource_group_location       = local.global_hubs["untrusted-dev"].resource_group_location
+  resource_group_location       = local.global_hubs["untrusted-dev"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["untrusted-dev"].virtual_network_name
   virtual_network_address_space = local.global_hubs["untrusted-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["untrusted-dev"].dns_servers
@@ -134,7 +136,7 @@ module "mgmt_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["mgmt"].resource_group_name
-  location = local.global_hubs["mgmt"].resource_group_location
+  location = local.global_hubs["mgmt"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["mgmt"].resource_group_tags
 
   providers = {
@@ -146,7 +148,7 @@ module "mgmt_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["mgmt"].resource_group_name
-  resource_group_location       = local.global_hubs["mgmt"].resource_group_location
+  resource_group_location       = local.global_hubs["mgmt"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["mgmt"].virtual_network_name
   virtual_network_address_space = local.global_hubs["mgmt"].virtual_network_address_space
   dns_servers                   = local.global_hubs["mgmt"].dns_servers
@@ -164,7 +166,7 @@ module "on_prem_rg" {
   source = "../modules/resource-group"
 
   name     = local.global_hubs["on-prem"].resource_group_name
-  location = local.global_hubs["on-prem"].resource_group_location
+  location = local.global_hubs["on-prem"].resource_group_location # todo: replace this with var.tenant.location
   tags     = local.global_hubs["on-prem"].resource_group_tags
 
   providers = {
@@ -176,7 +178,7 @@ module "on_prem_hub" {
   source = "../modules/hub-vnet"
 
   resource_group_name           = local.global_hubs["on-prem"].resource_group_name
-  resource_group_location       = local.global_hubs["on-prem"].resource_group_location
+  resource_group_location       = local.global_hubs["on-prem"].resource_group_location # todo: replace this with var.tenant.location
   virtual_network_name          = local.global_hubs["on-prem"].virtual_network_name
   virtual_network_address_space = local.global_hubs["on-prem"].virtual_network_address_space
   dns_servers                   = local.global_hubs["on-prem"].dns_servers
