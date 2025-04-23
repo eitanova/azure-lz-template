@@ -35,7 +35,7 @@ provider "azurerm" {
 provider "azurerm" {
   features {}
   subscription_id = var.subscriptions["global/prd/network"].id
-  alias = "internet"
+  alias = "internet-prd"
 }
 provider "azurerm" {
   features {}
