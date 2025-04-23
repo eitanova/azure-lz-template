@@ -10,7 +10,7 @@ module "division_trusted_prod_hub" {
   route_table                   = local.trusted_prod_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-trusted-prd
+    azurerm = azurerm.trusted-prd
   }
 
   depends_on = [module.division_trusted_prod_rg]
@@ -28,7 +28,7 @@ module "division_untrusted_prod_hub" {
   route_table                   = local.untrusted_prod_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-untrusted-prd
+    azurerm = azurerm.untrusted-prd
   }
 
   depends_on = [module.division_untrusted_prod_rg]
@@ -46,7 +46,7 @@ module "division_trusted_ppd_hub" {
   route_table                   = local.trusted_ppd_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-trusted-ppd
+    azurerm = azurerm.trusted-ppd
   }
 
   depends_on = [module.division_trusted_ppd_rg]
@@ -64,7 +64,7 @@ module "division_untrusted_ppd_hub" {
   route_table                   = local.untrusted_ppd_hub.route_table
 
   providers = {
-    azurerm = azurerm.current-untrusted-ppd
+    azurerm = azurerm.untrusted-ppd
   }
 
   depends_on = [module.division_untrusted_ppd_rg]

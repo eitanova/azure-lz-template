@@ -6,7 +6,7 @@ module "division_trusted_prod_rg" {
   tags     = local.trusted_prod_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-trusted-prd
+    azurerm = azurerm.trusted-prd
   }
 }
 
@@ -18,7 +18,7 @@ module "division_untrusted_prod_rg" {
   tags     = local.untrusted_prod_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-untrusted-prd
+    azurerm = azurerm.untrusted-prd
   }
 }
 
@@ -30,7 +30,7 @@ module "division_trusted_ppd_rg" {
   tags     = local.trusted_ppd_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-trusted-ppd
+    azurerm = azurerm.trusted-ppd
   }
 }
 
@@ -42,6 +42,6 @@ module "division_untrusted_ppd_rg" {
   tags     = local.untrusted_ppd_hub.resource_group_tags
 
   providers = {
-    azurerm = azurerm.current-untrusted-ppd
+    azurerm = azurerm.untrusted-ppd
   }
 }

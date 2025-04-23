@@ -25,7 +25,7 @@ module "untrusted_prod_internet_peering" {
   }
 
   providers = {
-    azurerm.source = azurerm.current-untrusted-prd
+    azurerm.source = azurerm.untrusted-prd
     azurerm.target = azurerm.internet-prd
   }
 
@@ -59,7 +59,7 @@ module "untrusted_ppd_internet_peering" {
   }
 
   providers = {
-    azurerm.source = azurerm.current-untrusted-ppd
+    azurerm.source = azurerm.untrusted-ppd
     azurerm.target = azurerm.internet-prd
   }
 
@@ -93,7 +93,7 @@ module "trusted_prod_on_prem_peering" {
   }
 
   providers = {
-    azurerm.source = azurerm.current-trusted-prd
+    azurerm.source = azurerm.trusted-prd
     azurerm.target = azurerm.on-prem
   }
 
