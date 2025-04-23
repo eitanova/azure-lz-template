@@ -21,15 +21,15 @@ resource "azurerm_subnet" "this" {
 
 
 resource "azurerm_route_table" "this" {
-  name                = var.route_table.route_table_name
+  name                = var.route_table.name
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
   route {
     name                   = var.route_table.route_name
-    address_prefix         = var.route_table.route_destination_prefix
-    next_hop_type          = var.route_table.route_next_hop_type
-    next_hop_in_ip_address = var.route_table.route_next_hop_ip
+    address_prefix         = var.route_table.destination_prefix
+    next_hop_type          = var.route_table.next_hop_type
+    next_hop_in_ip_address = var.route_table.next_hop_ip
   }
 }
 

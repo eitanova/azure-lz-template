@@ -20,3 +20,10 @@ variable "tenant" {
     location           = string
   })
 }
+
+variable "subscriptions" {
+  type = map(object({
+    id           = string
+    display_name = string
+  }))
+}
