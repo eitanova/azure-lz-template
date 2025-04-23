@@ -38,4 +38,4 @@ variable "security_rules" {
 variable "subnet_id" {
   description = "The ID of the subnet to associate with the network security group"
   type        = string
-} 
+}
