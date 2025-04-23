@@ -4,7 +4,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "mgmt"
-      team: "network"
     virtual_network_name: "mgmt-hub"
     virtual_network_address_space: "10.112.4.0/24"
     dns_servers: []

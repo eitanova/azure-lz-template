@@ -54,8 +54,6 @@ environments:
             name: "turkiz-trusted-ppd-fw"
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
-            threat_intel_mode: "Alert"
-            private_ip_ranges: []
             zones: ["1", "2", "3"]
   prd:
     shared_services:
@@ -83,8 +81,6 @@ environments:
             name: "turkiz-untrusted-prd-fw"
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
-            threat_intel_mode: "Alert"
-            private_ip_ranges: []
             zones: ["1", "2", "3"]
         trusted:
           resource_group_name: "turkiz-trusted-prd-rg"
@@ -109,6 +105,4 @@ environments:
             name: "turkiz-trusted-prd-fw"
             sku_name: "AZFW_Hub"
             sku_tier: "Standard"
-            threat_intel_mode: "Alert"
-            private_ip_ranges: []
             zones: ["1", "2", "3"]

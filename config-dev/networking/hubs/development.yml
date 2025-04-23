@@ -4,7 +4,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
-      team: "network"
     virtual_network_name: "internet-dev-hub"
     virtual_network_address_space: "10.112.0.0/24"
     dns_servers: []
@@ -24,7 +23,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
-      team: "network"
     virtual_network_name: "trusted-dev-hub"
     virtual_network_address_space: "10.112.1.0/24"
     dns_servers: []
@@ -41,7 +39,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "dev"
-      team: "network"
     virtual_network_name: "untrusted-dev-hub"
     virtual_network_address_space: "10.112.2.0/24"
     dns_servers: []

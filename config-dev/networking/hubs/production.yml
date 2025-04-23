@@ -4,7 +4,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "prd"
-      team: "network"
     virtual_network_name: "internet-prd-hub"
     virtual_network_address_space: "10.112.4.0/24"
     dns_servers: []
@@ -24,7 +23,6 @@ hubs:
     resource_group_location: "Israel Central"
     resource_group_tags:
       env: "onprem"
-      team: "network"
     virtual_network_name: "on-prem-hub"
     virtual_network_address_space: "10.112.3.0/24"
     dns_servers: []
