@@ -10,12 +10,12 @@ hubs:
       GatewaySubnet:
         address_prefixes:
           - 10.112.4.0/28
-    route_table:
-      name: "udr-internet-prd"
-      route_name: "default-route"
-      destination_prefix: "0.0.0.0/0"
-      next_hop_type: "VirtualAppliance"
-      next_hop_ip: "1.1.1.1"
+    route_tables:
+      udr-internet-prd:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"
 
   on-prem:
     resource_group_name: "on-prem-rg"
@@ -25,9 +25,9 @@ hubs:
     virtual_network_address_space: "10.112.3.0/24"
     dns_servers: []
     subnets: {}
-    route_table:
-      name: "udr-on-prem"
-      route_name: "default-route"
-      destination_prefix: "0.0.0.0/0"
-      next_hop_type: "VirtualAppliance"
-      next_hop_ip: "1.1.1.1"
+    route_tables:
+      udr-on-prem:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"

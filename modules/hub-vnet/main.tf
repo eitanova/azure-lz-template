@@ -19,26 +19,31 @@ resource "azurerm_subnet" "this" {
   resource_group_name  = var.resource_group_name
 }
 
-
 resource "azurerm_route_table" "this" {
-  name                = var.route_table.name
+  for_each = var.route_tables
+
+  name                = each.key
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
   route {
-    name                   = var.route_table.route_name
-    address_prefix         = var.route_table.destination_prefix
-    next_hop_type          = var.route_table.next_hop_type
-    next_hop_in_ip_address = var.route_table.next_hop_ip
+    name                   = each.value.route_name
+    address_prefix         = each.value.destination_prefix
+    next_hop_type          = each.value.next_hop_type
+    next_hop_in_ip_address = each.value.next_hop_ip
   }
 }
 
 resource "azurerm_subnet_route_table_association" "this" {
   for_each = {
-    for name, cidr in var.subnets : name => cidr
-    if name != "AzureFirewallSubnet" && name != "GatewaySubnet" && name != "PaloAltoSubnet"
+    for subnet_name, route_table_name in var.subnet_route_table_map : subnet_name => route_table_name
+    if contains(keys(var.subnets), subnet_name) &&
+    subnet_name != "AzureFirewallSubnet" &&
+    subnet_name != "GatewaySubnet" &&
+    subnet_name != "PaloAltoSubnet" &&
+    contains(keys(var.route_tables), route_table_name)
   }
 
   subnet_id      = azurerm_subnet.this[each.key].id
-  route_table_id = azurerm_route_table.this.id
+  route_table_id = azurerm_route_table.this[each.value].id
 }

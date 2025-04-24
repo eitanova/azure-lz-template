@@ -39,12 +39,16 @@ EOT
   type = map(string)
 }
 
-variable "route_table" {
-  type = object({
-    name               = string
+variable "route_tables" {
+  type = map(object({
     route_name         = string
     destination_prefix = string
     next_hop_type      = string
     next_hop_ip        = string
-  })
+  }))
+}
+
+variable "subnet_route_table_map" {
+  type        = map(string)
+  description = "Map of subnet names to route table names. If a subnet is not in this map, it won't get a route table association."
 }
