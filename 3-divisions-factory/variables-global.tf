@@ -19,3 +19,8 @@ variable "tenant" {
     enrollment_account = string
   })
 }
+variable "global_vnets" {
+  description = "key value of global vnets from stage 2"
+  type        = map(string)
+  default     = {}
+}

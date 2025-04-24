@@ -19,7 +19,7 @@ environments:
               address_prefixes:
                 - 10.113.3.0/28
           route_table:
-            name: "udr-turkiz-untrusted-ppd"
+            name: "udr-turkiz-untrusted-ppd" # todo: make this a map of objects (you can use the name value as the key)
             route_name: "default-route"
             destination_prefix: "0.0.0.0/0"
             next_hop_type: "VirtualAppliance"
@@ -33,7 +33,7 @@ environments:
             zones: ["1", "2", "3"]
         trusted:
           resource_group_name: "turkiz-trusted-ppd-rg"
-          resource_group_location: "Israel Central"
+          resource_group_location: "Israel Central" # todo: remove this from yml
           resource_group_tags:
             env: "ppd"
             division: "turkiz"
@@ -45,7 +45,7 @@ environments:
               address_prefixes:
                 - 10.113.2.0/28
           route_table:
-            name: "udr-turkiz-trusted-ppd"
+            name: "udr-turkiz-trusted-ppd" # todo: make this a map of objects (you can use the name value as the key)
             route_name: "default-route"
             destination_prefix: "0.0.0.0/0"
             next_hop_type: "VirtualAppliance"
@@ -72,7 +72,7 @@ environments:
               address_prefixes:
                 - 10.113.1.0/28
           route_table:
-            name: "udr-turkiz-untrusted-prd"
+            name: "udr-turkiz-untrusted-prd" # todo: make this a map of objects (you can use the name value as the key)
             route_name: "default-route"
             destination_prefix: "0.0.0.0/0"
             next_hop_type: "VirtualAppliance"
@@ -96,7 +96,7 @@ environments:
               address_prefixes:
                 - 10.113.0.0/28
           route_table:
-            name: "udr-turkiz-trusted-prd"
+            name: "udr-turkiz-trusted-prd" # todo: make this a map of objects (you can use the name value as the key)
             route_name: "default-route"
             destination_prefix: "0.0.0.0/0"
             next_hop_type: "VirtualAppliance"
