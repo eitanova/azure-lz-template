@@ -7,7 +7,8 @@ module "internet_prd_hub" {
   virtual_network_address_space = local.global_hubs["internet-prd"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-prd"].dns_servers
   subnets                       = local.global_hubs["internet-prd"].subnets
-  route_table                   = local.global_hubs["internet-prd"].route_table
+  route_tables                  = local.global_hubs["internet-prd"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["internet-prd"].subnets : subnet_name => keys(local.global_hubs["internet-prd"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.internet-prd
@@ -25,7 +26,8 @@ module "internet_dev_hub" {
   virtual_network_address_space = local.global_hubs["internet-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["internet-dev"].dns_servers
   subnets                       = local.global_hubs["internet-dev"].subnets
-  route_table                   = local.global_hubs["internet-dev"].route_table
+  route_tables                  = local.global_hubs["internet-dev"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["internet-dev"].subnets : subnet_name => keys(local.global_hubs["internet-dev"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.internet-dev
@@ -43,7 +45,8 @@ module "trusted_dev_hub" {
   virtual_network_address_space = local.global_hubs["trusted-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["trusted-dev"].dns_servers
   subnets                       = local.global_hubs["trusted-dev"].subnets
-  route_table                   = local.global_hubs["trusted-dev"].route_table
+  route_tables                  = local.global_hubs["trusted-dev"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["trusted-dev"].subnets : subnet_name => keys(local.global_hubs["trusted-dev"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.trusted-dev
@@ -61,7 +64,8 @@ module "untrusted_dev_hub" {
   virtual_network_address_space = local.global_hubs["untrusted-dev"].virtual_network_address_space
   dns_servers                   = local.global_hubs["untrusted-dev"].dns_servers
   subnets                       = local.global_hubs["untrusted-dev"].subnets
-  route_table                   = local.global_hubs["untrusted-dev"].route_table
+  route_tables                  = local.global_hubs["untrusted-dev"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["untrusted-dev"].subnets : subnet_name => keys(local.global_hubs["untrusted-dev"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.untrusted-dev
@@ -79,7 +83,8 @@ module "mgmt_hub" {
   virtual_network_address_space = local.global_hubs["mgmt"].virtual_network_address_space
   dns_servers                   = local.global_hubs["mgmt"].dns_servers
   subnets                       = local.global_hubs["mgmt"].subnets
-  route_table                   = local.global_hubs["mgmt"].route_table
+  route_tables                  = local.global_hubs["mgmt"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["mgmt"].subnets : subnet_name => keys(local.global_hubs["mgmt"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.mgmt
@@ -97,7 +102,8 @@ module "on_prem_hub" {
   virtual_network_address_space = local.global_hubs["on-prem"].virtual_network_address_space
   dns_servers                   = local.global_hubs["on-prem"].dns_servers
   subnets                       = local.global_hubs["on-prem"].subnets
-  route_table                   = local.global_hubs["on-prem"].route_table
+  route_tables                  = local.global_hubs["on-prem"].route_tables
+  subnet_route_table_map        = { for subnet_name, _ in local.global_hubs["on-prem"].subnets : subnet_name => keys(local.global_hubs["on-prem"].route_tables)[0] }
 
   providers = {
     azurerm = azurerm.on-prem
