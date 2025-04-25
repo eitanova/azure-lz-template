@@ -13,7 +13,10 @@ module "trusted_prod_firewalls" {
     azurerm = azurerm.trusted-prd
   }
 
-  depends_on = [module.division_trusted_prod_rgs]
+  depends_on = [
+    module.division_trusted_prod_rgs,
+    module.division_trusted_prod_hubs
+  ]
 }
 
 # Untrusted Production Firewalls
@@ -31,7 +34,10 @@ module "untrusted_prod_firewalls" {
     azurerm = azurerm.untrusted-prd
   }
 
-  depends_on = [module.division_untrusted_prod_rgs]
+  depends_on = [
+    module.division_untrusted_prod_rgs,
+    module.division_untrusted_prod_hubs
+  ]
 }
 
 # Trusted PPD Firewalls
@@ -49,7 +55,10 @@ module "trusted_ppd_firewalls" {
     azurerm = azurerm.trusted-ppd
   }
 
-  depends_on = [module.division_trusted_ppd_rgs]
+  depends_on = [
+    module.division_trusted_ppd_rgs,
+    module.division_trusted_ppd_hubs
+  ]
 }
 
 # Untrusted PPD Firewalls
@@ -67,5 +76,8 @@ module "untrusted_ppd_firewalls" {
     azurerm = azurerm.untrusted-ppd
   }
 
-  depends_on = [module.division_untrusted_ppd_rgs]
+  depends_on = [
+    module.division_untrusted_ppd_rgs,
+    module.division_untrusted_ppd_hubs
+  ]
 }
