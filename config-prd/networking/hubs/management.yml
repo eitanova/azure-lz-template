@@ -1,0 +1,18 @@
+hubs:
+  mgmt:
+    resource_group_name: "mgmt-rg"
+    resource_group_tags:
+      env: "mgmt"
+    virtual_network_name: "mgmt-hub"
+    virtual_network_address_space: "10.112.4.0/24"
+    dns_servers: []
+    subnets:
+      GatewaySubnet:
+        address_prefixes:
+          - 10.112.4.0/28
+    route_tables:
+      udr-mgmt:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"

@@ -1,0 +1,33 @@
+hubs:
+  internet-prd:
+    resource_group_name: "internet-prd-rg"
+    resource_group_tags:
+      env: "prd"
+    virtual_network_name: "internet-prd-hub"
+    virtual_network_address_space: "10.112.4.0/24"
+    dns_servers: []
+    subnets:
+      GatewaySubnet:
+        address_prefixes:
+          - 10.112.4.0/28
+    route_tables:
+      udr-internet-prd:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"
+
+  on-prem:
+    resource_group_name: "on-prem-rg"
+    resource_group_tags:
+      env: "onprem"
+    virtual_network_name: "on-prem-hub"
+    virtual_network_address_space: "10.112.3.0/24"
+    dns_servers: []
+    subnets: {}
+    route_tables:
+      udr-on-prem:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"

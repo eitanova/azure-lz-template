@@ -1,0 +1,48 @@
+hubs:
+  internet-dev:
+    resource_group_name: "internet-dev-rg"
+    resource_group_tags:
+      env: "dev"
+    virtual_network_name: "internet-dev-hub"
+    virtual_network_address_space: "10.112.0.0/24"
+    dns_servers: []
+    subnets:
+      palo:
+        address_prefixes:
+          - 10.112.0.0/28
+    route_tables:
+      udr-internet-dev:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"
+
+  trusted-dev:
+    resource_group_name: "trusted-dev-rg"
+    resource_group_tags:
+      env: "dev"
+    virtual_network_name: "trusted-dev-hub"
+    virtual_network_address_space: "10.112.1.0/24"
+    dns_servers: []
+    subnets: {}
+    route_tables:
+      udr-trusted-dev:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"
+
+  untrusted-dev:
+    resource_group_name: "untrusted-dev-rg"
+    resource_group_tags:
+      env: "dev"
+    virtual_network_name: "untrusted-dev-hub"
+    virtual_network_address_space: "10.112.2.0/24"
+    dns_servers: []
+    subnets: {}
+    route_tables:
+      udr-untrusted-dev:
+        route_name: "default-route"
+        destination_prefix: "0.0.0.0/0"
+        next_hop_type: "VirtualAppliance"
+        next_hop_ip: "1.1.1.1"
