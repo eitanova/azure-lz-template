@@ -1,3 +1,7 @@
 name: Gem
 
+environments:
+  dev: {}
+  prd: {}
+  ppd: {}
 type: unit

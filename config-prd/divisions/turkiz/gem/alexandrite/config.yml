@@ -1,3 +1,6 @@
 name: Alexandrite
-
+environments:
+  dev: {}
+  prd: {}
+  ppd: {}
 type: subunit

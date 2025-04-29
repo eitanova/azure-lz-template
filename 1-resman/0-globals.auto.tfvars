@@ -18,7 +18,7 @@ tenant = {
   name               = "sky"
   display_name       = "Sky320"
   prefix             = "sky-"
-  billing_name       = "6356805"
-  enrollment_account = "269111"
+  billing_name       = "6356805" # parent billing account name (Gov ...)
+  enrollment_account = "269111" # child billing account name (Turkiz-Gem)
   location = "Israel Central"
 }

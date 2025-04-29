@@ -1,0 +1,33 @@
+display_name: borders-untrusted-ppd-0
+parent_id: alexandrite-ppd-untrusted
+tags:
+  department : turkiz
+  accountname : gem
+  costcenter : alexandrite
+  createddate : 29-04-2025
+  expirationdate : 30-11-2025
+  environment : ppd
+  budget : 500
+  application : shared-poc
+  owners : Yehuda-Samuel
+  source : aladdin
+
+rbac:
+  owner:
+  - group:<group email/name>
+
+network:
+  subnets:
+    1:
+      ip_cidr_range: 10.144.1.0/28
+      rbac:
+        reader:
+        - group:<group email/name>
+  
+budget:
+  amount: 500
+  thresholds:
+  - percent: 0.5
+    forecasted_spend: true
+  - percent: 0.7
+    forecasted_spend: false

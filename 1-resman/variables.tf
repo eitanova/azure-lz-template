@@ -5,6 +5,7 @@ variable "global_shared_services" {
     rbac         = optional(map(list(string)), {})
     subscriptions = optional(map(object({
       display_name = string
+      parent_id = optional(string, null)
       alias        = optional(string, null)
       tags         = optional(map(string), {})
     })), {})

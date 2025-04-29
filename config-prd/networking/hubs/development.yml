@@ -9,13 +9,13 @@ hubs:
     subnets:
       palo:
         address_prefixes:
-          - 10.112.0.0/28
+          - 10.112.0.0/27
     route_tables:
       udr-internet-dev:
         route_name: "default-route"
         destination_prefix: "0.0.0.0/0"
         next_hop_type: "VirtualAppliance"
-        next_hop_ip: "1.1.1.1"
+        next_hop_ip: "10.112.0.68"
 
   trusted-dev:
     resource_group_name: "trusted-dev-rg"
@@ -30,7 +30,7 @@ hubs:
         route_name: "default-route"
         destination_prefix: "0.0.0.0/0"
         next_hop_type: "VirtualAppliance"
-        next_hop_ip: "1.1.1.1"
+        next_hop_ip: "10.112.1.4"
 
   untrusted-dev:
     resource_group_name: "untrusted-dev-rg"
@@ -45,4 +45,4 @@ hubs:
         route_name: "default-route"
         destination_prefix: "0.0.0.0/0"
         next_hop_type: "VirtualAppliance"
-        next_hop_ip: "1.1.1.1"
+        next_hop_ip: "10.112.2.4"

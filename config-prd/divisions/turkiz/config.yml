@@ -23,13 +23,12 @@ environments:
                 route_name: "default-route"
                 destination_prefix: "0.0.0.0/0"
                 next_hop_type: "VirtualAppliance"
-                next_hop_ip: "1.1.1.1"
+                next_hop_ip: "10.113.3.68"
             firewall_config:
               name: "turkiz-untrusted-ppd-hub1-fw"
-              sku_name: "AZFW_Hub"
+              sku_name: "AZFW_VNet"
               sku_tier: "Standard"
               threat_intel_mode: "Alert"
-              private_ip_ranges: []
               zones: ["1", "2", "3"]
               public_ip_allocation_method: "Static"
               public_ip_sku: "Standard"
@@ -55,10 +54,10 @@ environments:
                 route_name: "default-route"
                 destination_prefix: "0.0.0.0/0"
                 next_hop_type: "VirtualAppliance"
-                next_hop_ip: "1.1.1.1"
+                next_hop_ip: "10.113.2.68"
             firewall_config:
               name: "turkiz-trusted-ppd-hub1-fw"
-              sku_name: "AZFW_Hub"
+              sku_name: "AZFW_VNet"
               sku_tier: "Standard"
               zones: ["1", "2", "3"]
               public_ip_allocation_method: "Static"
@@ -88,10 +87,10 @@ environments:
                 route_name: "default-route"
                 destination_prefix: "0.0.0.0/0"
                 next_hop_type: "VirtualAppliance"
-                next_hop_ip: "1.1.1.1"
+                next_hop_ip: "10.113.0.68"
             firewall_config:
               name: "turkiz-untrusted-prd-hub1-fw"
-              sku_name: "AZFW_Hub"
+              sku_name: "AZFW_VNet"
               sku_tier: "Standard"
               zones: ["1", "2", "3"]
               public_ip_allocation_method: "Static"
@@ -118,10 +117,10 @@ environments:
                 route_name: "default-route"
                 destination_prefix: "0.0.0.0/0"
                 next_hop_type: "VirtualAppliance"
-                next_hop_ip: "1.1.1.1"
+                next_hop_ip: "10.113.0.68"
             firewall_config:
               name: "turkiz-trusted-prd-hub1-fw"
-              sku_name: "AZFW_Hub"
+              sku_name: "AZFW_VNet"
               sku_tier: "Standard"
               zones: ["1", "2", "3"]
               public_ip_allocation_method: "Static"

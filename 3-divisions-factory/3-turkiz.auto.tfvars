@@ -1,0 +1,7 @@
+division_name = "turkiz"
+on_prem_vnet_id = "/subscriptions/543679a6-be51-49af-b53f-066e097a7db9/resourceGroups/on-prem-rg/providers/Microsoft.Network/virtualNetworks/on-prem-hub"
+on_prem_vnet_name = "on-prem-hub"
+on_prem_vnet_rg = "on-prem-rg"
+prod_internet_vnet_id = "/subscriptions/31fe8e06-29f3-4c68-9d59-26a09871756c/resourceGroups/internet-prd-rg/providers/Microsoft.Network/virtualNetworks/internet-prd-hub"
+prod_internet_vnet_name= "internet-prd-hub"
+prod_internet_vnet_rg = "internet-prd-rg"

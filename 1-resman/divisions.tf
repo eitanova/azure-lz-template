@@ -100,6 +100,22 @@ module "subunits-level" {
   parent_id    = module.units-level[each.value.parent_key].details.id
   id           = each.value.id
 }
+module "trusted-subunits-level" {
+  source   = "../modules/management-group"
+  for_each = local.subunits
+
+  display_name = "trusted"
+  parent_id    = module.subunits-level[each.key].details.id
+  id           = "${each.value.id}-trusted"
+}
+module "untrusted-subunits-level" {
+  source   = "../modules/management-group"
+  for_each = local.subunits
+
+  display_name = "untrusted"
+  parent_id    = module.subunits-level[each.key].details.id
+  id           = "${each.value.id}-untrusted"
+}
 
 # Shared Services
 module "divisions-parent-shared-services-level" {
@@ -138,4 +154,5 @@ module "divisions-subscriptions" { # validate one subscription for prd and ppd
     name            = var.tenant.billing_name
     enrollment_name = var.tenant.enrollment_account
   }
+  depends_on = [ module.divisions-shared-services-level ]
 }

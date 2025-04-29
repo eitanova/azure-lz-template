@@ -17,10 +17,11 @@ module "shared-services-subscriptions" {
   display_name = each.value.display_name
   tags         = each.value.tags
 
-  parent_id = module.global-shared-services-level[each.value.parent].details.id
+  parent_id = each.value.parent_id != null ? each.value.parent_id : module.global-shared-services-level[each.value.parent].details.id
 
   billing = {
     name            = var.tenant.billing_name
     enrollment_name = var.tenant.enrollment_account
   }
+  depends_on = [ module.global-shared-services-level ]
 }

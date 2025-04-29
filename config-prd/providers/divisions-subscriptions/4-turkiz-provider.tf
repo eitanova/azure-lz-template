@@ -4,7 +4,7 @@ terraform {
     use_azuread_auth     = true
     tenant_id            = "6a80ee49-3cee-4c00-9548-d8dfed5020b8"
     resource_group_name  = "landing-zone-states"
-    storage_account_name = "terrastatesdev"
+    storage_account_name = "skystates"
     container_name       = "subscriptions"
     key                  = "turkiz.terraform.tfstate"
     subscription_id      = "cb6a7a77-cdd1-4d79-974a-d6917ccb4ff7"
@@ -14,5 +14,5 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "cb6a7a77-cdd1-4d79-974a-d6917ccb4ff7"
+  subscription_id = "31076e3c-fc5e-4f0b-be52-0eb744e89036"
 }

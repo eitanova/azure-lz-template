@@ -1,7 +1,5 @@
 [0-9]*/local-*.tf
 **/*.excalidraw
-*/*-provider.tf
-*/*.auto.tfvars
 **/.terraform
 **/terraform.tfstate*
 **/.terraform.tfstate.lock.info

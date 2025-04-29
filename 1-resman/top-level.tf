@@ -13,18 +13,32 @@ module "security-top-level" {
   id           = "cross-cloud-security"
   display_name = "Cross Cloud Security"
   parent_id    = module.root-level.details.id
+
+  depends_on = [ module.root-level ]
 }
 module "shared-services-top-level" {
   source       = "../modules/management-group"
-  id           = "global-shared-services"
-  display_name = "Global Shared Services"
+  id           = "sky-shared-services"
+  display_name = "Sky Shared Services"
   parent_id    = module.root-level.details.id
+  
+  depends_on = [ module.root-level ]
 }
-module "decommissioned-top-level" {
+# module "decommissioned-top-level" {
+#   source       = "../modules/management-group"
+#   id           = "decommissioned-subscriptions"
+#   display_name = "Decommissioned"
+#   parent_id    = module.root-level.details.id
+
+#   depends_on = [ module.root-level ]
+# }
+module "dev-shared-services-top-level" {
   source       = "../modules/management-group"
-  id           = "decommissioned-subscriptions"
-  display_name = "Decommissioned"
-  parent_id    = module.root-level.details.id
+  id           = "sky-dev-shared-services"
+  display_name = "Dev Shared Services"
+  parent_id    = module.environments-top-level["dev"].details.id
+  
+  depends_on = [ module.environments-top-level ]
 }
 module "environments-top-level" {
   source       = "../modules/management-group"
@@ -32,6 +46,8 @@ module "environments-top-level" {
   id           = each.key
   display_name = each.value.name
   parent_id    = module.root-level.details.id
+
+  depends_on = [ module.root-level ]
 }
 
 # Global shared services
@@ -42,4 +58,6 @@ module "global-shared-services-level" {
   display_name = each.value.display_name
   parent_id    = module.shared-services-top-level.details.id
   id           = each.key
+
+  depends_on = [ module.shared-services-top-level ]
 }

@@ -3,7 +3,7 @@ locals {
     { "root" = module.root-level },
     { "security" = module.security-top-level },
     { "shared_services" = module.shared-services-top-level },
-    { "decommissioned" = module.decommissioned-top-level },
+    #{ "decommissioned" = module.decommissioned-top-level },
     module.environments-top-level,
     module.global-shared-services-level
   )
